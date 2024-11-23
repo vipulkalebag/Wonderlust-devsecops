@@ -25,7 +25,7 @@ pipeline{
         }
         stage("Trivy file scan"){
             steps{
-                sh "trivy fs --format table -o trivy-fs-report.html ."
+                sh "trivy fs . > trivyfs.txt"
             }
         }
         stage("Deploy using Docker compose"){
